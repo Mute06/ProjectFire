@@ -36,8 +36,7 @@ public class TopDownMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheckPoint.position, radius, groundLayer);
 
         // Move in the direction we are aiming
-        //input = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        input = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
         input = Quaternion.Euler(0, cam.transform.rotation.eulerAngles.y, 0) * input;
         input.Normalize();
         moveVector = input * moveSpeed;
