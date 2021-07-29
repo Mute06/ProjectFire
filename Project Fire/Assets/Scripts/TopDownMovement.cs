@@ -12,7 +12,8 @@ public class TopDownMovement : MonoBehaviour
     [Range(0.01f,1f)] public float acceleration;
     public LayerMask groundLayer;
     public Transform groundCheckPoint;
-    public float jumpForce = 7f , radius;
+    public float jumpForce = 7f;
+    [SerializeField] private float groundCheckRadius;
     public ParticleSystem moveParticle;
     [SerializeField] private UnityEvent OnMoveEvent, OnStopEvet; 
     
@@ -33,7 +34,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheckPoint.position, radius, groundLayer);
+        isGrounded = Physics.CheckSphere(groundCheckPoint.position, groundCheckRadius, groundLayer);
 
         // Move in the direction we are aiming
         input = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
@@ -50,7 +51,6 @@ public class TopDownMovement : MonoBehaviour
             var targetRotation = Quaternion.LookRotation(input,Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
 
-            //transform.forward = input;
 
             OnMoveEvent.Invoke();
 

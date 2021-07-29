@@ -1,0 +1,33 @@
+{
+    "name": "Camera",
+    "maps": [
+        {
+            "name": "Camera",
+            "id": "71e8a8e2-30fc-4692-9e70-37abbcc881f2",
+            "actions": [
+                {
+                    "name": "Mouse",
+                    "type": "Value",
+                    "id": "e6f8249a-a58c-4661-a8fd-362d6943fa5c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c659b5f7-09dd-406e-92f9-09609e8a96b6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -10,6 +10,7 @@ public class InputHandler : MonoBehaviour
 
     public Vector2 InputVector { get; private set; }
     public bool jumpKey { get; private set; }
+    public float mouseDelta { get; private set; }
 
     // Creating instance of controls
     private void Awake()
