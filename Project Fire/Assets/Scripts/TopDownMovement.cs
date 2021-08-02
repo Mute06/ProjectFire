@@ -39,7 +39,7 @@ public class TopDownMovement : MonoBehaviour
         // Move in the direction we are aiming
         input = new Vector3(_input.InputVector.x, 0, _input.InputVector.y);
         input = Quaternion.Euler(0, cam.transform.rotation.eulerAngles.y, 0) * input;
-        input.Normalize();
+        //input.Normalize();
         moveVector = input * moveSpeed;
 
 

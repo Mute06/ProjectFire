@@ -36,7 +36,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Camera"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""66a95fea-14c4-4343-91f1-def0217fbe70"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -49,6 +49,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""id"": ""db1caa85-4759-4b46-961c-ac02661994be"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d057e850-3512-4a4e-9c32-8e8135ebb3cc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
@@ -112,8 +123,19 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""201c5c9d-49a2-420d-b264-ca336b3e71d0"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""id"": ""d3b00991-f48c-4da1-b382-9c71654a4f21"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13d8ac9b-da94-4572-bf14-84a357b248c9"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

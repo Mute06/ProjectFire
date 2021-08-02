@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour
 {
     private Controls controls = null;
-    private Keyboard keyboard;
 
     public Vector2 InputVector { get; private set; }
     public bool jumpKey { get; private set; }
@@ -15,9 +14,7 @@ public class InputHandler : MonoBehaviour
     // Creating instance of controls
     private void Awake()
     {
-        controls = new Controls();
-        keyboard = InputSystem.GetDevice<Keyboard>();
-        
+        controls = new Controls(); 
     }
     //Disableing and Enabling the Controls
     private void OnEnable()
@@ -31,10 +28,10 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
+        //Movement Vector
         InputVector = controls.Player.Movement.ReadValue<Vector2>();
-
-        //Temporary Jump
-        jumpKey = keyboard.spaceKey.wasPressedThisFrame;
+        //Jump
+        jumpKey = controls.Player.Jump.triggered;
     }
 
 }
