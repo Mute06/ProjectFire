@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickObject : MonoBehaviour
 {
+    [SerializeField] Transform holdPoint;
     private InputHandler _input;
     [SerializeField] private InsideTrigger trigger;
     private GameObject selectedGameObject;
@@ -28,13 +29,24 @@ public class PickObject : MonoBehaviour
 
     private void OnIntreactPressed()
     {
-        if (trigger.ListOfGameobjects.Count > 0)
+        //Pick up the Object
+        if (!isHolding)
         {
-            if (selectedGameObject == null)
+            if (trigger.ListOfGameobjects.Count > 0)
             {
-                selectedGameObject = GetTheClosestObject();
+                if (selectedGameObject == null)
+                {
+                    selectedGameObject = GetTheClosestObject();
+                    PickTheObject(selectedGameObject);
+                }
+
             }
-            
+        }
+
+        // Drop The Object
+        else if (selectedGameObject != null)
+        {
+            DropTheObject(selectedGameObject);
         }
     }
 
@@ -53,5 +65,31 @@ public class PickObject : MonoBehaviour
         }
         return closestObject;
     }
+
+    private void PickTheObject(GameObject selectedObject)
+    {
+        isHolding = true;
+        var selectedRb = selectedGameObject.GetComponent<Rigidbody>();
+        selectedRb.isKinematic = true;
+        selectedObject.transform.position = holdPoint.position; 
+        selectedObject.transform.SetParent(holdPoint);
+        selectedObject.transform.rotation = Quaternion.identity;
+
+        selectedObject.GetComponent<Collider>().enabled = false;
+
+
+    }
+
+    private void DropTheObject(GameObject selectedObject)
+    {
+        isHolding = false;
+        selectedGameObject = null;
+        var selectedRb = selectedObject.GetComponent<Rigidbody>();
+        selectedRb.isKinematic = false;
+        selectedObject.transform.SetParent(null);
+
+        selectedObject.GetComponent<Collider>().enabled = true;
+    }
+        
 
 }
